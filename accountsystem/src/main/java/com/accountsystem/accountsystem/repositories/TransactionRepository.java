@@ -8,8 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.accountsystem.accountsystem.entities.Transaction;
 
+/*
+ * Repository interface for Transaction entity
+ */
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 	
+	// Method to find transactions by account number and date range
 	List<Transaction> findByAccountNumberAndTransactionDateBetween(String accountNumber, LocalDate startDate, LocalDate endDate);
 }

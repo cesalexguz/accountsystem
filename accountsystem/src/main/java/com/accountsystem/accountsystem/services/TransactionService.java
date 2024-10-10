@@ -5,15 +5,24 @@ import java.util.Optional;
 
 import com.accountsystem.accountsystem.entities.Transaction;
 
+/*
+ * Service interface for managing transactions
+ */
 public interface TransactionService {
 	
-    List<Transaction> getAllTransactions();
-    
-    Optional<Transaction> getTransactionById(Long id);
-    
-    Transaction createTransaction(Transaction transaction);
-    
-    Transaction updateTransaction(Long id, Transaction transaction);
-    
-    void deleteTransaction(Long id);
+	// Retrieve all transactions
+	List<Transaction> getAllTransactions();
+	 
+	// Retrieve a transaction by its ID
+	Optional<Transaction> getTransactionById(Long id);
+	 
+	// Create a new transaction
+	Transaction createTransaction(Transaction transaction);
+	 
+	// Update an existing transaction by its ID
+	Transaction updateTransaction(Long id, Transaction transaction);
+	 
+	// Delete a transaction by its ID
+	void deleteTransaction(Long id);
+
 }

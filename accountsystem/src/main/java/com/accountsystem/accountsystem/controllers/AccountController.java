@@ -20,18 +20,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accountsystem.accountsystem.entities.Account;
 import com.accountsystem.accountsystem.services.AccountServiceImpl;
 
+/*
+ * REST controller for managing accounts
+ */
 @RestController
 @RequestMapping("/cuentas")
 public class AccountController {
 
+	// Injecting the AccountService implementation
 	@Autowired
     private AccountServiceImpl accountService;
 
+	// Endpoint to retrieve all accounts
     @GetMapping
     public ResponseEntity<List<Account>> getAllAccounts() {
     	return new ResponseEntity<>(accountService.getAllAccounts(), HttpStatus.OK);
     }
     
+    // Endpoint to retrieve an account by its ID
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccountById(@PathVariable("id") String id) {
     	Optional<Account> account = accountService.getAccountById(id);
@@ -41,6 +47,7 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Endpoint to create a new account
     @PostMapping
     public ResponseEntity<?> createAccount(@RequestBody Account account) {
     	try {
@@ -56,6 +63,7 @@ public class AccountController {
         }
     }
 
+    // Endpoint to update an existing account by its ID
     @PutMapping("/{id}")
     public ResponseEntity<?> updateAccount(@PathVariable("id") String id, @RequestBody Account accountDetails) {
     	try {
@@ -71,6 +79,7 @@ public class AccountController {
         }
     }
 
+    // Endpoint to delete an account by its ID
     @DeleteMapping("/{id}")
     public void deleteAccount(@PathVariable("id") String id) {
         accountService.deleteAccount(id);

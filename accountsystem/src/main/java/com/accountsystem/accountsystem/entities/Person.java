@@ -5,30 +5,41 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+/*
+ * Base class for all person-related entities
+ */
 @MappedSuperclass
 public class Person {
-    @Id
-    private String identification;
-    
-    @NotBlank
-    private String name;
-    
-    @NotBlank
-    private String gender;
-    
-    @NotNull
-    private int age;
-    
-    @NotBlank
-    private String address;
-    
-    @NotBlank
-    private String phone;
+	
+	// Unique identification for the person
+	@Id
+	private String identification;
+	 
+	// Name of the person
+	@NotBlank
+	private String name;
+	 
+	// Gender of the person
+	@NotBlank
+	private String gender;
+	 
+	// Age of the person
+	@NotNull
+	private int age;
+	 
+	// Address of the person
+	@NotBlank
+	private String address;
+	 
+	// Phone number of the person
+	@NotBlank
+	private String phone;
 
+	// Constructors 
 	public Person() {
 		super();
 	}
-
+	
 	public Person(String identification, @NotBlank String name, @NotBlank String gender, @NotNull int age,
 			@NotBlank String address, @NotBlank String phone) {
 		super();
@@ -39,55 +50,56 @@ public class Person {
 		this.address = address;
 		this.phone = phone;
 	}
-
+	
+	// Getters and Setters
 	public String getIdentification() {
 		return identification;
 	}
-
+	
 	public void setIdentification(String identification) {
 		this.identification = identification;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public String getGender() {
 		return gender;
 	}
-
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
+	
 	public int getAge() {
 		return age;
 	}
-
+	
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+	
 	public String getAddress() {
 		return address;
 	}
-
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	public String getPhone() {
 		return phone;
 	}
-
+	
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Person [identification=" + identification + ", name=" + name + ", gender=" + gender + ", age=" + age

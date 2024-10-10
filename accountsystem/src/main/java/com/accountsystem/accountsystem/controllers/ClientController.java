@@ -20,18 +20,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accountsystem.accountsystem.entities.Client;
 import com.accountsystem.accountsystem.services.ClientServiceImpl;
 
+/*
+ * REST controller for managing clients
+ */
 @RestController
 @RequestMapping("/clientes")
 public class ClientController {
 	
+	// Injecting the ClientService implementation
     @Autowired
     private ClientServiceImpl clientService;
 
+    // Endpoint to retrieve all client
     @GetMapping
     public ResponseEntity<List<Client>> getAllClients() {
     	 return new ResponseEntity<>(clientService.getAllClients(), HttpStatus.OK);
     }
     
+    // Endpoint to retrieve a client by their ID
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClientById(@PathVariable("id") String id) {
         Optional<Client> client = clientService.getClientById(id);
@@ -41,6 +47,7 @@ public class ClientController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Endpoint to create a new client
     @PostMapping
     public ResponseEntity<?> createClient(@RequestBody Client client) {
     	try {
@@ -56,6 +63,7 @@ public class ClientController {
         }
     }
 
+    // Endpoint to update an existing client by their ID
     @PutMapping("/{id}")
     public ResponseEntity<?> updateClient(@PathVariable("id") String id, @RequestBody Client clientDetails) {
     	try {
@@ -71,6 +79,7 @@ public class ClientController {
         }
     }
 
+    // Endpoint to delete a client by their ID
     @DeleteMapping("/{id}")
     public void deleteClient(@PathVariable("id") String id) {
         clientService.deleteClient(id);

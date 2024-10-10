@@ -11,9 +11,13 @@ import com.accountsystem.accountsystem.repositories.ClientRepository;
 
 import jakarta.transaction.Transactional;
 
+/*
+ * Implementation of ClientService
+ */
 @Service
 public class ClientServiceImpl implements ClientService {
 	
+	// Injecting the ClientRepository dependency
     @Autowired
     private ClientRepository clientRepository;
 

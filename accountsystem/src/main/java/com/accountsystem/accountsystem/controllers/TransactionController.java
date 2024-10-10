@@ -22,18 +22,24 @@ import com.accountsystem.accountsystem.entities.Transaction;
 import com.accountsystem.accountsystem.exceptions.InsufficientBalanceException;
 import com.accountsystem.accountsystem.services.TransactionServiceImpl;
 
+/*
+ * REST controller for managing transactions
+ */
 @RestController
 @RequestMapping("/movimientos")
 public class TransactionController {
 
+	// Injecting the TransactionService implementation
 	@Autowired
     private TransactionServiceImpl transactionService;
 
+	// Endpoint to retrieve all transactions
     @GetMapping
     public ResponseEntity<List<Transaction>> getAllTransactions() {
     	return new ResponseEntity<>(transactionService.getAllTransactions(), HttpStatus.OK);
     }
     
+    // Endpoint to retrieve a transaction by its ID
     @GetMapping("/{id}")
     public ResponseEntity<Transaction> getTransactionById(@PathVariable("id") Long id) {
     	Optional<Transaction> Transaction = transactionService.getTransactionById(id);
@@ -42,7 +48,7 @@ public class TransactionController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
+    // Endpoint to create a new transaction
     @PostMapping
     public ResponseEntity<?> createTransaction(@RequestBody Transaction Transaction) {
     	try {
@@ -58,6 +64,7 @@ public class TransactionController {
         }
     }
 
+    // Endpoint to update an existing transaction by its ID
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTransaction(@PathVariable("id") Long id, @RequestBody Transaction TransactionDetails) {
     	try {
@@ -73,11 +80,13 @@ public class TransactionController {
         }
     }
 
+    // Endpoint to delete a transaction by its ID
     @DeleteMapping("/{id}")
     public void deleteTransaction(@PathVariable("id") Long id) {
         transactionService.deleteTransaction(id);
     }
     
+    // Exception handler for InsufficientBalanceException
     @ExceptionHandler(InsufficientBalanceException.class)
     public ResponseEntity<String> handleInsufficientBalanceException(InsufficientBalanceException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);

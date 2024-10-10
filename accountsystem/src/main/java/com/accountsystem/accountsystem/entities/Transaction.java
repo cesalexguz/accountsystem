@@ -12,29 +12,39 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+/*
+ * Entity representing a transaction
+ */
 @Entity
 @Table(name="transaction")
 public class Transaction {
 	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate transactionDate;
-    
-    @NotBlank
-    private String transactionType;
-    
-    @NotNull
-    private double amount;
-    
-    private double balance;
-    
-    @NotBlank
-    private String accountNumber;
+	// Unique transaction ID
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	 
+	// Date of the transaction
+	@NotNull
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate transactionDate;
+	 
+	// Type of the transaction (e.g., deposit, withdrawal)
+	@NotBlank
+	private String transactionType;
+	 
+	// Amount involved in the transaction
+	@NotNull
+	private double amount;
+	 
+	// Balance after the transaction
+	private double balance;
+	 
+	// Account number associated with the transaction
+	@NotBlank
+	private String accountNumber;
 
+    // Constructors 
 	public Transaction() {
 		super();
 	}
@@ -50,6 +60,7 @@ public class Transaction {
 		this.accountNumber = accountNumber;
 	}
 
+	// Getters and Setters
 	public Long getId() {
 		return id;
 	}

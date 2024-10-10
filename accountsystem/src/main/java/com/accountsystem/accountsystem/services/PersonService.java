@@ -5,15 +5,24 @@ import java.util.Optional;
 
 import com.accountsystem.accountsystem.entities.Person;
 
+/*
+ * Service interface for managing persons
+ */
 public interface PersonService {
 	
-    List<Person> getAllPersons();
-    
-    Optional<Person> getPersonById(String identification);
-    
-    Person createPerson(Person person);
-    
-    Person updatePerson(String identification, Person person);
-    
-    void deletePerson(String identification);
+	// Retrieve all persons
+	List<Person> getAllPersons();
+	 
+	// Retrieve a person by their identification
+	Optional<Person> getPersonById(String identification);
+	 
+	// Create a new person
+	Person createPerson(Person person);
+	 
+	// Update an existing person by their identification
+	Person updatePerson(String identification, Person person);
+	 
+	// Delete a person by their identification
+	void deletePerson(String identification);
+	
 }

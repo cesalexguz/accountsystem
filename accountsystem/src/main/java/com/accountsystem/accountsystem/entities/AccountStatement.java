@@ -2,14 +2,21 @@ package com.accountsystem.accountsystem.entities;
 
 import java.util.List;
 
+/*
+ * Class representing an account statement
+ */
 public class AccountStatement {
 	
-    private Client client;
-    
-    private List<Account> accounts;
-    
-    private List<Transaction> transactions;
+	// Client associated with the account statement
+	private Client client;
+	 
+	// List of accounts associated with the client
+	private List<Account> accounts;
+	 
+	// List of transactions associated with the accounts
+	private List<Transaction> transactions;
 
+    // Constructors 
     public AccountStatement() {
 		super();
 	}
@@ -20,6 +27,7 @@ public class AccountStatement {
         this.transactions = transactions;
     }
 
+	// Getters and Setters
 	public Client getClient() {
 		return client;
 	}

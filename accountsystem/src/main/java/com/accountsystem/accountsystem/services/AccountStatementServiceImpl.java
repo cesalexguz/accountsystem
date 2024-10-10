@@ -15,15 +15,21 @@ import com.accountsystem.accountsystem.repositories.AccountRepository;
 import com.accountsystem.accountsystem.repositories.ClientRepository;
 import com.accountsystem.accountsystem.repositories.TransactionRepository;
 
+/*
+ * Implementation of AccountStatementService
+ */
 @Service
 public class AccountStatementServiceImpl implements AccountStatementService {
 	
+	// Injecting the ClientRepository dependency
     @Autowired
     private ClientRepository clientRepository;
 
+    // Injecting the AccountRepository dependency
     @Autowired
     private AccountRepository accountRepository;
 
+    // Injecting the TransactionRepository dependency
     @Autowired
     private TransactionRepository transactionRepository;
 

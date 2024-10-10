@@ -10,10 +10,13 @@ import com.accountsystem.accountsystem.entities.Person;
 import com.accountsystem.accountsystem.repositories.PersonRepository;
 
 import jakarta.transaction.Transactional;
-
+/*
+ * Implementation of PersonService
+ */
 @Service
 public class PersonServiceImpl implements PersonService {
 	
+	// Injecting the PersonRepository dependency
     @Autowired
     private PersonRepository personRepository;
 

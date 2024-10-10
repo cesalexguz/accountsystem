@@ -5,15 +5,24 @@ import java.util.Optional;
 
 import com.accountsystem.accountsystem.entities.Account;
 
+/*
+ * Service interface for managing accounts
+ */
 public interface AccountService {
 	
-    List<Account> getAllAccounts();
-    
-    Optional<Account> getAccountById(String accountNumber);
-    
-    Account createAccount(Account account);
-    
-    Account updateAccount(String accountNumber, Account account);
-    
-    void deleteAccount(String accountNumber);
+	// Retrieve all accounts
+	List<Account> getAllAccounts();
+	 
+	// Retrieve an account by its number
+	Optional<Account> getAccountById(String accountNumber);
+	 
+	// Create a new account
+	Account createAccount(Account account);
+	 
+	// Update an existing account by its number
+	Account updateAccount(String accountNumber, Account account);
+	 
+	// Delete an account by its number
+	void deleteAccount(String accountNumber);
+	
 }

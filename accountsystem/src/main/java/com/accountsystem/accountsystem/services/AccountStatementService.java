@@ -4,7 +4,12 @@ import java.time.LocalDate;
 
 import com.accountsystem.accountsystem.entities.AccountStatement;
 
+/*
+ * Service interface for generating account statements
+ */
 public interface AccountStatementService {
 	
-    AccountStatement getAccountStatement(String clientId, LocalDate startDate, LocalDate endDate);
+	// Generate an account statement for a client within a date range
+	AccountStatement getAccountStatement(String clientId, LocalDate startDate, LocalDate endDate);
+	
 }

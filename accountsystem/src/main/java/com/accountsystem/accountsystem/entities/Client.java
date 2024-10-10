@@ -5,18 +5,25 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+/*
+ * Entity representing a client, inheriting from Person
+ */
 @Entity
 @Table(name="client")
 public class Client extends Person {
 	
+	// Unique client ID
 	@NotNull
-    private Long clientId;
-    
+	private Long clientId;
+ 
+	// Password for the client's account
 	@NotBlank
 	private String password;
-    
-    private boolean status;
+	 
+	// Status of the client (active/inactive)
+	private boolean status;
 
+    // Constructors 
 	public Client() {
 		super();
 	}
@@ -29,6 +36,7 @@ public class Client extends Person {
 		this.status = status;
 	}
 
+	// Getters and Setters
 	public Long getClientId() {
 		return clientId;
 	}

@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accountsystem.accountsystem.entities.AccountStatement;
 import com.accountsystem.accountsystem.services.AccountStatementService;
 
+/*
+ * REST controller for generating account statements
+ */
 @RestController
 @RequestMapping("/reportes")
 public class AccountStatementController {
 	
+	// Injecting the AccountStatementService implementation
     @Autowired
     private AccountStatementService accountStatementService;
 
+    // Endpoint to generate an account statement for a client within a date range
     @GetMapping
     public AccountStatement getAccountStatement(
             @RequestParam("clientId") String clientId,
