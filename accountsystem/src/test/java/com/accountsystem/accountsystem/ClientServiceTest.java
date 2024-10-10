@@ -19,33 +19,33 @@ import java.util.Optional;
 public class ClientServiceTest {
 
     @Mock
-    private ClientRepository clientRepository;
+    private static ClientRepository clientRepository;
 
     @InjectMocks
-    private ClientServiceImpl clientService;
+    private static ClientServiceImpl clientService;
 
-    private Client client;
+    private static Client client;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         client = new Client();
         client.setClientId(1L);
-        client.setName("John Doe");
-        client.setGender("Male");
+        client.setName("Alejandro Chimborazo");
+        client.setGender("M");
         client.setAge(30);
-        client.setIdentification("123456789");
-        client.setAddress("123 Main St");
-        client.setPhone("555-1234");
-        client.setPassword("password");
+        client.setIdentification("1234567895");
+        client.setAddress("Amazonas y Gaspar de Villarroel");
+        client.setPhone("5551234");
+        client.setPassword("6789");
         client.setStatus(true);
     }
 
     @Test
-    public void testGetClientById() {
-        when(clientRepository.findById("1234567890")).thenReturn(Optional.of(client));
+    public static void testGetClientById() {
+        when(clientRepository.findById("1234567895")).thenReturn(Optional.of(client));
 
-        Optional<Client> foundClient = clientService.getClientById("1234567890");
+        Optional<Client> foundClient = clientService.getClientById("1234567895");
 
         assertNotNull(foundClient);
         assertEquals(client.getClientId(), foundClient.get().getClientId());

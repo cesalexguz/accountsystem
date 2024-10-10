@@ -20,13 +20,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ClientIntegrationTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private static MockMvc mockMvc;
 
     @Autowired
-    private ClientRepository clientRepository;
+    private static ClientRepository clientRepository;
 
     @Test
-    public void testCreateClient() throws Exception {
+    public static void testCreateClient() throws Exception {
         Client client = new Client();
         client.setClientId(1L);
         client.setName("Jose Lema");

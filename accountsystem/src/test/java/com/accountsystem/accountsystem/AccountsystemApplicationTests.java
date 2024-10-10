@@ -7,7 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AccountsystemApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void contextLoads() throws Exception {
+		ClientIntegrationTest.testCreateClient();
+		ClientServiceTest.testGetClientById();
 	}
 
 }
